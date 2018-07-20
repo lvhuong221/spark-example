@@ -27,6 +27,7 @@ public class RDD_TransformationAndAction {
                 return Arrays.asList(line.split(" ")).iterator();
             }
         });
-        words.first(); // returns "hello"
+        System.out.println(words.toString());
+        //words.first(); // returns "hello"
     }
 }
