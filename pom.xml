@@ -20,7 +20,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>RDD_TransformationAndAction</mainClass>
+                            <mainClass>WordCount</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -36,7 +36,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>RDD_TransformationAndAction</mainClass>
+                            <mainClass>WordCount</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
