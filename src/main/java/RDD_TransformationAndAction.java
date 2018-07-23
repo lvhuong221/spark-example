@@ -4,10 +4,12 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
+
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class RDD_TransformationAndAction {
+public class RDD_TransformationAndAction implements Serializable {
     private SparkConf conf = new SparkConf().setAppName("testingSpark").setMaster("local");
     private JavaSparkContext sc = new JavaSparkContext(conf);
     public static void main(String[] args) {
@@ -27,6 +29,7 @@ public class RDD_TransformationAndAction {
                 return Arrays.asList(line.split(" ")).iterator();
             }
         });
+
         System.out.println(words.toString());
         //words.first(); // returns "hello"
     }
