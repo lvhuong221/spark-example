@@ -22,7 +22,7 @@ public class WordCount implements Serializable{
         JavaRDD<String> words = input.flatMap(
                 new FlatMapFunction<String, String>() {
                     public Iterator<String> call(String x) {
-                        return Arrays.asList(x.split(" ")).iterator();
+                        return Arrays.asList(x.split("\\W")).iterator();
                     }});
         // Transform into pairs and count.
         JavaPairRDD<String, Integer> counts = words.mapToPair(
@@ -32,6 +32,6 @@ public class WordCount implements Serializable{
                     }}).reduceByKey(new Function2<Integer, Integer, Integer>(){
             public Integer call(Integer x, Integer y){ return x + y;}});
         // Save the word count back out to a text file, causing evaluation.
-        counts.saveAsTextFile("./output.txt");
+        counts.saveAsTextFile("./output");
     }
 }

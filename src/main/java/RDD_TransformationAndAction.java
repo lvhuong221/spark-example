@@ -29,7 +29,6 @@ public class RDD_TransformationAndAction implements Serializable {
                 return Arrays.asList(line.split(" ")).iterator();
             }
         });
-
         System.out.println(words.toString());
         //words.first(); // returns "hello"
     }
