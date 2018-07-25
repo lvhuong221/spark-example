@@ -15,11 +15,11 @@ public class WordCount implements Serializable{
 
         // Op.Create a Java Spark Context
         SparkConf conf = new SparkConf().setAppName("wordCount");
-        SparkSession df = SparkSession
+        /*SparkSession df = SparkSession
                 .builder()
                 .appName("Java Spark SQL basic example")
                 .config("spark.some.config.option", "some-value")
-                .getOrCreate();
+                .getOrCreate();*/
         JavaSparkContext sc = new JavaSparkContext(conf);
         // Load our input data.
         JavaRDD<String> input = sc.textFile(args[0]);
