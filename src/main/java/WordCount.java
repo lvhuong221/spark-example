@@ -6,7 +6,7 @@ import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
-
+import org.apache.spark.sql.SparkSession;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -15,6 +15,11 @@ public class WordCount implements Serializable{
 
         // Op.Create a Java Spark Context
         SparkConf conf = new SparkConf().setAppName("wordCount");
+        SparkSession df = SparkSession
+                .builder()
+                .appName("Java Spark SQL basic example")
+                .config("spark.some.config.option", "some-value")
+                .getOrCreate();
         JavaSparkContext sc = new JavaSparkContext(conf);
         // Load our input data.
         JavaRDD<String> input = sc.textFile(args[0]);
@@ -32,6 +37,8 @@ public class WordCount implements Serializable{
                     }}).reduceByKey(new Function2<Integer, Integer, Integer>(){
             public Integer call(Integer x, Integer y){ return x + y;}});
         // Save the word count back out to a text file, causing evaluation.
+
         counts.saveAsTextFile("./output");
+
     }
 }
