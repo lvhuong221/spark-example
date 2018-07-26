@@ -20,7 +20,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>WordCount</mainClass>
+                            <mainClass>vn.admicro.WordCount</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -36,7 +36,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>WordCount</mainClass>
+                            <mainClass>vn.admicro.WordCount</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
