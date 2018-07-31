@@ -33,6 +33,7 @@ public class WordCount implements Serializable{
                     }}).reduceByKey(new Function2<Integer, Integer, Integer>(){
             public Integer call(Integer x, Integer y){ return x + y;}});
         // Save the word count back out to a text file, causing evaluation.
-        counts.saveAsTextFile(args[1]);
+        counts.coalesce(1).saveAsTextFile(args[1]);
+        sc.close();
     }
 }
